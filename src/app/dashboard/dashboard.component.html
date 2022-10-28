@@ -1,0 +1,64 @@
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let user of List">
+      <td>{{ user.Fname }}</td>
+      <td>{{ user.Lname }}</td>
+      <td>{{ user.Email }}</td>
+
+      <td>
+        <button type="button" (click)="onEdit(user)" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          class="btn btn-success mx-3">Edit</button>
+        <button type="button" (click)="deletedata(user.ID)" class="btn btn-danger">Delete</button>
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #form="ngForm" [formGroup]="formValue">
+
+          <div class="mb-3">
+            <label for="Fname" class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="Fname">
+          </div>
+
+          <div class="mb-3">
+            <label for="Lname" class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="Lname">
+          </div>
+
+          <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" class="form-control" formControlName="Email">
+          </div>
+
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)=" updateUser() ">Update</button>
+      </div>
+    </div>
+  </div>
+</div>

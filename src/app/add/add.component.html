@@ -1,0 +1,21 @@
+<form #form="ngForm" [formGroup]="formValue">
+
+  <div class="mb-3">
+    <label for="Fname" class="form-label">First Name</label>
+    <input type="text" class="form-control" formControlName="Fname" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="Lname" class="form-label">Last Name</label>
+    <input type="text" class="form-control" formControlName="Lname" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="Email" class="form-label">Email address</label>
+    <input type="email" class="form-control" formControlName="Email" required>
+  </div>
+
+</form>
+
+<button type="button" class="btn btn-secondary" style="margin: 2px;" routerLink="/navbar">Close</button>
+<button type="button" class="btn btn-primary" (click)=" postdata() ">ADD</button>
